@@ -149,7 +149,7 @@ async fn process_upload(
         size: content.unwrap().len(),
         status: upload_status,
         url: format!(
-            "http://{}/{}",
+            "https://{}/{}",
             url,
             custom_url.unwrap_or(item.short.clone())
         ),
@@ -345,7 +345,7 @@ pub async fn update_data(
                 Ok(_) => {
                     log::info!("update {} success", key);
                     return Ok(warp::reply::with_status(
-                        format!("http://{}/{} updated", host, item.short),
+                        format!("https://{}/{} updated", host, item.short),
                         http::StatusCode::OK,
                     )
                     .into_response());
